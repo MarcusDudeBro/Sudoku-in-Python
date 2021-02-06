@@ -10,8 +10,7 @@ random numbers within the puzzle
 ## How to run
 1. Download the files from this github repository
 2. Unzip if necessary
-3. Navigate to the "src" folder
-4. run main.py
+3. run main.py
 
 ## How to play
 To write numbers onto squares, first click on the square that you want to write the number to. A red box should outline

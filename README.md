@@ -2,8 +2,8 @@
 A sudoku game made in python using the pygame library. Randomly generates solvable sudoku puzzles whilst being timed.
 
 ### About
-To make this game, I implemented and used data structures while also focusing a bit more on using the functional
-programming paradigm orginally. With version 2, I decided to switch to an object oriented design implementing the gameboard and game class. It still uses a tree to randomly generate a sudoku puzzle.
+To make this game, I implemented and used data structures while orginally focusing a bit more on using the functional
+programming paradigm. With version 2, I decided to switch to an object oriented design, implementing the gameboard and game class. It still uses a tree to randomly generate a sudoku puzzle.
 
 ## How to run
 1. Download the files from this github repository

@@ -121,6 +121,7 @@ class Game():
         load_button = self.draw_button((self.WIDTH//2)-75, 400, 160, 60,
                                        "load save", self.L_GRAY, 24)
         while self.running:
+            self.reset_keys()
             self.check_events()
             if self.mouseup:
                 mouse_pos = pg.mouse.get_pos()

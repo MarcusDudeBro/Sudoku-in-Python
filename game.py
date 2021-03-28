@@ -7,23 +7,16 @@ import json
 class Game():
     def __init__(self):
         pg.init()
-        self.running, self.playing = True, False
-        self.h, self.back, self.lshift, = False, False, False
-        self.keydown, self.mousedown, self.mouseup = False, False, False
-        self.key_num = None
+        self.running, self.playing, self.won = True, False, False
         self.timer = 0
         self.WIDTH, self.HEIGHT = 725, 750
-        self.WINDOW_RES = (self.WIDTH, self.HEIGHT)
-        # self.display = pg.display.set_mode((self.WIDTH, self.HEIGHT))
-        self.WINDOW = pg.display.set_mode(self.WINDOW_RES)
+        self.WINDOW = pg.display.set_mode((self.WIDTH, self.HEIGHT))
         pg.display.set_caption("Sudoku")
         icon = pg.image.load(getcwd() + "\\icon.png")
         pg.display.set_icon(icon)
         self.gameboard = Gameboard()
-        self.won = False
         self.BLACK, self.DARK_GRAY = (0, 0, 0), (75, 75, 75)
-        self.WHITE = (255, 255, 255)
-        self.L_GRAY = (180, 180, 180)
+        self.WHITE, self.L_GRAY = (255, 255, 255), (180, 180, 180)
 
     def check_events(self):
         for event in pg.event.get():
@@ -127,7 +120,6 @@ class Game():
                                         "start", self.L_GRAY, 24)
         load_button = self.draw_button((self.WIDTH//2)-75, 400, 160, 60,
                                        "load save", self.L_GRAY, 24)
-        # main loop
         while self.running:
             self.check_events()
             if self.mouseup:
@@ -153,6 +145,7 @@ class Game():
         won = False
         clock = pg.time.Clock()
         while self.playing:
+            self.reset_keys()
             self.check_events()
             self.WINDOW.fill(self.WHITE)
             for pos in errors:
@@ -206,5 +199,4 @@ class Game():
             # draws a red square around selected cell on the gameboard
             pg.draw.rect(self.WINDOW, RED, (50*col+137, 50*row+25, 50, 50), 3)
             self.show_time()
-            self.reset_keys()
             pg.display.update()

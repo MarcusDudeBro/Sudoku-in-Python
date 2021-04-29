@@ -126,6 +126,7 @@ class Game():
             if self.mouseup:
                 mouse_pos = pg.mouse.get_pos()
                 if start_button.collidepoint(mouse_pos):
+                    self.timer = 0
                     try:
                         self.gameboard.create_solution()
                         self.playing = True
